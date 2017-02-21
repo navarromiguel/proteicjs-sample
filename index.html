@@ -1,0 +1,54 @@
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7' lang=''> <![endif]-->
+<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8' lang=''> <![endif]-->
+<!--[if IE 8]>         <html class='no-js lt-ie9' lang=''> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang=''>
+<!--<![endif]-->
+
+<head>
+    <title>Websocket streamgraph</title>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src='proteic.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="proteic.css">
+</head 
+<body>
+<h1>Proteic js</h1>
+
+<div id='chart'></div>
+<div id='chartGrouped'></div>
+
+<script>
+    var data = [
+      {x: 'SP', key: '- 18', y: 30},
+      {x: 'SP', key: '+ 18 - 35', y: 25},
+      {x: 'SP', key: '+ 35', y: 45},
+      {x: 'FR', key: '- 18', y: 10},
+      {x: 'FR', key: '+ 18 - 35', y: 50},
+      {x: 'FR', key: '+ 35', y: 40},
+      {x: 'BR', key: '- 18', y: 20},
+      {x: 'BR', key: '+ 18 - 35', y: 40},
+      {x: 'BR', key: '+ 35', y: 40}
+    ];
+    
+    var barchart = new proteic.Barchart(data, {
+      stacked: true,
+      xAxisLabel: 'Países',
+      yAxisLabel: 'Población (%)'
+    });
+    barchart.draw();
+    
+    var barchartGrouped = new proteic.Barchart(data, {
+      selector: '#chartGrouped',
+      stacked: false,
+      xAxisLabel: 'Países',
+      yAxisLabel: 'Población (%)'
+    });
+    barchartGrouped.draw();
+</script>
+</body>
+
+</html>
